@@ -14,3 +14,9 @@ movl \buffer, %ecx
 movl \buffer_size, %edx
 int $LINUX_SYSCALL
 .endm
+#exit
+.macro exit code
+movl $SYS_EXIT, %eax
+movl \code, %ebx
+int $LINUX_SYSCALL
+.endm
